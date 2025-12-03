@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/MateoDCRZ/gitops-demo.git
+    repoURL: https://github.com/MateoDCRZ/gitops-demo-TP4.git
     targetRevision: main
     path: manifests
   destination:
