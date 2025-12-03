@@ -23,7 +23,7 @@ jobs:
         run: docker build -t node-app-secure -f app-secure/Dockerfile app-secure
       - name: Install Trivy
         run: |
-    curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh
           sudo chmod +x /usr/local/bin/trivy
       - name: Scan image with Trivy
         run: |
@@ -35,5 +35,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push image to Docker Hub
         run: |
-    docker tag node-app-secure ${{ secrets.DOCKERHUB_USERNAME }}/node-app-secure:latest
-    docker push ${{ secrets.DOCKERHUB_USERNAME }}/node-app-secure:latest
+          docker tag node-app-secure ${{ secrets.DOCKERHUB_USERNAME }}/node-app-secure:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/node-app-secure:latest
