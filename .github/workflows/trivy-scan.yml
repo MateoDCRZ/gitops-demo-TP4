@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - ci-cd-demo-test
+      - ci-cd-trivy-test
 
 jobs:
   trivy-scan:
