@@ -45,14 +45,14 @@ jobs:
           fi
 
       - name: Log in to Docker Hub
-        if: ${{ success() }}
+        if: ${{ success() && matrix.app == 'app-sec' }}
         uses: docker/login-action@v2
         with:
-          username: MateoDCRZ
-          password: ${{ secrets.MateoDCRZ }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push image to Docker Hub
-        if: ${{ success() }}
+        if: ${{ success() && matrix.app == 'app-sec' }}
         run: |
-          docker tag ${{ matrix.app }} MateoDCRZ/${{ matrix.app }}:latest
-          docker push MateoDCRZ/${{ matrix.app }}:latest
+          docker tag ${{ matrix.app }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.app }}:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.app }}:latest
